@@ -24,23 +24,22 @@ username
   }
 `
 export const ADD_USER = gql`
-mutation addUser ($username:String!, $email:String!, $password:String!, $savedBooks:[Books], $bookCount: String){
-    addUser (username: $username, email: $email, password: $password, savedBooks: $savedBooks, bookCount: $bookCount){
+mutation addUser ($username:String!, $email:String!, $password:String!){
+    addUser (username: $username, email: $email, password: $password){
 token
 user {
-_id
+#_id
 username}
-
 #username
-#email
-#password
+email
+password
 #savedBooks
 #bookCount
     }
 }
 `
 export const SAVE_BOOK = gql`
-mutation SaveBook ($description: String!, $title: String!, $id: String!, $image: String, $link: String! $authors: Array) {
+mutation SaveBook ($description: String!, $title: String!, $id: String!, $image: String!, $link: String!, $authors: [String]!){
     saveBook (description: $description, title: $title, id: $id, image: $image, link: $link, authors: $authors){
     title
     authors

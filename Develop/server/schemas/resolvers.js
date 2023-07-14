@@ -29,7 +29,7 @@ const resolvers = {
 
     },
     Mutation: {
-        createUser: async (_, { firstName, lastName, address, unit }, req) => {
+        addUser: async (_, { firstName, lastName, address, unit }, req) => {
             // console.log(args);
             console.log(firstName, lastName, address, unit);
             try {
@@ -46,7 +46,7 @@ const resolvers = {
                 throw new Error(error.message);
             }
         },
-        addBook: async (_, { authors, description, title, bookId, image, link }, req) => {
+        saveBook: async (_, { authors, description, title, bookId, image, link }, req) => {
             try {
                 let book = new Book({
                     authors: authors,
